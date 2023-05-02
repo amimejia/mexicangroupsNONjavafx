@@ -5,84 +5,84 @@ public class Country extends Continent {
     private String capital;
     private int population;
 
-
     // Constructors
     public Country(String continentName, String ocean, String countryName, String capital, int population) {
         super(continentName, ocean);
-        //Choose a random country from the list of 10 countries
-        String[] countryNames = {"Mexico", "United States", "Canada", "Brazil", "Argentina", "France", "Germany", "Nigeria", "Egypt", "South Africa"};
+        // Choose a random country from the list of 10 countries
+        String[] countryNames = { "Mexico", "United States", "Canada", "Brazil", "Argentina", "France", "Germany",
+                "Nigeria", "Egypt", "South Africa" };
         int randomCountry = (int) (Math.random() * 10);
-        countryName = countryNames[randomCountry];
+        this.countryName = countryNames[randomCountry];
 
-        //Assign capitals to the countries
+        // Assign capitals to the countries
         switch (countryName) {
             case "Mexico":
-                capital = "Mexico City";
+                this.capital = "Mexico City";
                 break;
             case "United States":
-                capital = "Washington D.C.";
+                this.capital = "Washington D.C.";
                 break;
             case "Canada":
-                capital = "Ottawa";
+                this.capital = "Ottawa";
                 break;
             case "Brazil":
-                capital = "Brasilia";
+                this.capital = "Brasilia";
                 break;
             case "Argentina":
-                capital = "Buenos Aires";
+                this.capital = "Buenos Aires";
                 break;
             case "France":
-                capital = "Paris";
+                this.capital = "Paris";
                 break;
             case "Germany":
                 capital = "Berlin";
                 break;
             case "Nigeria":
-                capital = "Abuja";
+                this.capital = "Abuja";
                 break;
             case "Egypt":
-                capital = "Cairo";
+                this.capital = "Cairo";
                 break;
             case "South Africa":
-                capital = "Cape Town";
+                this.capital = "Cape Town";
                 break;
         }
-        this.capital = capital;
+        // this.capital = capital;
 
-        //Assign populations to the countries
+        // Assign populations to the countries
         switch (countryName) {
             case "Mexico":
-                population = 126200000;
+                this.population = 126200000;
                 break;
             case "United States":
-                population = 325700000;
+                this.population = 325700000;
                 break;
             case "Canada":
-                population = 36290000;
+                this.population = 36290000;
                 break;
             case "Brazil":
-                population = 207700000;
+                this.population = 207700000;
                 break;
             case "Argentina":
-                population = 43850000;
+                this.population = 43850000;
                 break;
             case "France":
-                population = 67120000;
+                this.population = 67120000;
                 break;
             case "Germany":
-                population = 82670000;
+                this.population = 82670000;
                 break;
             case "Nigeria":
-                population = 186000000;
+                this.population = 186000000;
                 break;
             case "Egypt":
-                population = 95690000;
+                this.population = 95690000;
                 break;
             case "South Africa":
-                population = 55630000;
+                this.population = 55630000;
                 break;
         }
-        this.population = population;
+        // this.population = population;
 
     }
 
@@ -92,11 +92,16 @@ public class Country extends Continent {
     }
 
     public void setCountryName(String countryName) {
-        this.countryName = countryName;
+        // Do some validation here to make sure countryName is not null
+        if (countryName != null && !countryName.isEmpty()) {
+            this.countryName = countryName;
+        }
     }
 
     public void setCapital(String capital) {
-        this.capital = capital;
+        if (capital != null && !capital.isEmpty()) {
+            this.capital = capital;
+        }
     }
 
     public String getCapital() {
@@ -120,25 +125,34 @@ public class Country extends Continent {
                 ", population=" + population +
                 '}';
     }
-    //Method to Identify if the country was colonized in the last 500 years
+
+    // Method to Identify if the country was colonized in the last 500 years
     public void colonized() {
-        if (countryName == "Mexico" || countryName == "United States" || countryName == "Canada" || countryName == "Brazil" || countryName == "Argentina") {
+        if (countryName.equals("Mexico") || countryName.equals("United States") || countryName.equals("Canada")
+                || countryName.equals("Brazil") || countryName.equals("Argentina")) {
             System.out.println("This country was colonized in the last 500 years");
         } else {
             System.out.println("This country was not colonized in the last 500 years");
         }
     }
 
-
-
     // override the flyOrSail method from the Continent class
     @Override
     public void flyOrSail() {
-        if (ocean == "Atlantic") {
+        if (ocean.equals("Atlantic")) {
             System.out.println("You should sail to " + continentName);
         } else {
             System.out.println("You should fly to " + continentName);
         }
 
+    }
+
+    
+    public int compareTo(Country other) {
+        int result = this.countryName.compareTo(other.countryName);
+        if (result == 0) {
+            result = this.capital.compareTo(other.capital);
+        }
+        return result;
     }
 }

@@ -65,7 +65,7 @@ abstract class Continent {
 
     //Method that suggests whether to fly or sail
     public void flyOrSail() {
-        if (ocean == "Atlantic") {
+        if (ocean.equals("Atlantic")) {
             System.out.println("You should sail to " + continentName);
         } else {
             System.out.println("You should fly to " + continentName);
