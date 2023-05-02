@@ -3,42 +3,39 @@ package guilford.edu;
 
 
 abstract class Continent {
-    protected String continentName;
-    protected String ocean;
+    public String continentName;
+    public String ocean;
 
     // Constructors
-    public Continent() {
+    public Continent(String continentName, String ocean) {
         //Make a switch statement that assigns each continent name to oceans
         //and then assign the values to the variables
         switch (continentName) {
             case "North America":
-                ocean = "Atlantic";
+                this.ocean = "Atlantic";
                 break;
             case "South America":
-                ocean = "Atlantic";
+                this.ocean = "Atlantic";
                 break;
             case "Europe":
-                ocean = "Atlantic";
+                this.ocean = "Atlantic";
                 break;
             case "Africa":
-                ocean = "Atlantic";
+                this.ocean = "Atlantic";
                 break;
             case "Asia":
-                ocean = "Pacific";
+                this.ocean = "Pacific";
                 break;
             case "Australia":
-                ocean = "Pacific";
+                this.ocean = "Pacific";
                 break;
             case "Antarctica":
-                ocean = "Pacific";
+                this.ocean = "Pacific";
                 break;
         }
     }
 
-    public Continent(String continentName, String ocean) {
-        this.continentName = continentName;
-        this.ocean = ocean;
-    }
+    
 
     // Getters and Setters
     public String getContinentName() {
@@ -72,12 +69,5 @@ abstract class Continent {
         }
     }
     
-    // Create a method that chooses if group is patriarchal or matriarchal
-    // public void patriarchalOrMatriarchal() {
-    //     if (femalepopulation > malepopulation) {
-    //         System.out.println("This group is matriarchal");
-    //     } else {
-    //         System.out.println("This group is patriarchal");
-    //     }
-    // }
+
 }
