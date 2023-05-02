@@ -1,19 +1,15 @@
 package guilford.edu;
 
-public class Culture extends Country implements Comparable<Culture> {
-    private String peoplesName;
-    private String language;
-    private String religion;
-    private String popularfood;
+public class Culture extends Country //implements Comparable<Culture> 
+{
+    public String peoplesName;
+    public String language;
+    public String religion;
+    public String popularfood;
 
     // Constructors
     public Culture(String continentName, String ocean, String countryName, String capital, int population, String peoplesName, String language, String religion, String popularfood) {
         super(continentName, ocean, countryName, capital, population);
-        //Choose a random peoplesName from the list of 10 peoplesNames
-        String [] peopleNames = {"Mexican", "American", "Canadian", "Brazilian", "Argentinian", "French", "German", "Nigerian", "Egyptian", "South African"};
-        int randomPeople = (int) (Math.random() * 10);
-        peoplesName = peopleNames[randomPeople];
-        //Assign languages to the peoplesNames and religions and popular foods
         switch (peoplesName) {
             case "Mexican":
                 language = "Spanish";
@@ -66,12 +62,19 @@ public class Culture extends Country implements Comparable<Culture> {
                 popularfood = "Biltong";
                 break;
         }
-
+        
+        this.peoplesName = peoplesName;
         this.language = language;
         this.religion = religion;
         this.popularfood = popularfood;
+
+    
     }
 
+    //Empty Constructor
+    // public Culture() {
+    //     super();
+    // }
 
     // Getters and Setters
     public String getPeoplesName() {
@@ -104,7 +107,7 @@ public class Culture extends Country implements Comparable<Culture> {
     @Override
     public String toString() {
         return "Culture{" +
-                "cultureName='" + peoplesName + '\'' +
+                "peoplesName='" + peoplesName + '\'' +
                 ", language='" + language + '\'' +
                 ", religion='" + religion + '\'' +
                 '}';
@@ -130,7 +133,7 @@ public class Culture extends Country implements Comparable<Culture> {
         }
     }
 
-    @Override
+    //@Override
     public int compareTo(Culture other) {
         int result = this.peoplesName.compareTo(other.peoplesName);
         if (result == 0) {

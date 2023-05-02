@@ -1,91 +1,73 @@
 package guilford.edu;
 
 public class Country extends Continent {
-    protected String countryName;
-    private String capital;
-    private int population;
+    public String countryName;
+    public String capital;
+    public int population;
 
     // Constructors
     public Country(String continentName, String ocean, String countryName, String capital, int population) {
         super(continentName, ocean);
-        // Choose a random country from the list of 10 countries
-        String[] countryNames = { "Mexico", "United States", "Canada", "Brazil", "Argentina", "France", "Germany",
-                "Nigeria", "Egypt", "South Africa" };
-        int randomCountry = (int) (Math.random() * 10);
-        this.countryName = countryNames[randomCountry];
 
-        // Assign capitals to the countries
+        // Assign capitals to the countries and population
         switch (countryName) {
             case "Mexico":
-                this.capital = "Mexico City";
+                capital = "Mexico City";
+                population = 126200000;
                 break;
             case "United States":
-                this.capital = "Washington D.C.";
+                capital = "Washington D.C.";
+                population = 325700000;
                 break;
             case "Canada":
-                this.capital = "Ottawa";
+                capital = "Ottawa";
+                population = 36290000;
                 break;
             case "Brazil":
-                this.capital = "Brasilia";
+                capital = "Brasilia";
+                population = 207700000;
                 break;
             case "Argentina":
-                this.capital = "Buenos Aires";
+                capital = "Buenos Aires";
+                population = 43850000;
                 break;
             case "France":
-                this.capital = "Paris";
+                capital = "Paris";
+                population = 43850000;
                 break;
             case "Germany":
                 capital = "Berlin";
+                population = 67120000;
                 break;
             case "Nigeria":
-                this.capital = "Abuja";
+                capital = "Abuja";
+                population = 186000000;
                 break;
             case "Egypt":
-                this.capital = "Cairo";
+                capital = "Cairo";
+                population = 95690000;
                 break;
             case "South Africa":
-                this.capital = "Cape Town";
+                capital = "Cape Town";
+                population = 55630000;
                 break;
         }
-        // this.capital = capital;
-
-        // Assign populations to the countries
-        switch (countryName) {
-            case "Mexico":
-                this.population = 126200000;
-                break;
-            case "United States":
-                this.population = 325700000;
-                break;
-            case "Canada":
-                this.population = 36290000;
-                break;
-            case "Brazil":
-                this.population = 207700000;
-                break;
-            case "Argentina":
-                this.population = 43850000;
-                break;
-            case "France":
-                this.population = 67120000;
-                break;
-            case "Germany":
-                this.population = 82670000;
-                break;
-            case "Nigeria":
-                this.population = 186000000;
-                break;
-            case "Egypt":
-                this.population = 95690000;
-                break;
-            case "South Africa":
-                this.population = 55630000;
-                break;
-        }
-        // this.population = population;
+        this.countryName = countryName;
+        this.capital = capital;
+        this.population = population;
+        
+        
+        
 
     }
-
+    //empty constructor
+    // public Country() {
+    //     super("", ""); // Call the parent class' empty constructor
+    // this.countryName = "";
+    // this.capital = "";
+    // this.population = 0;
+    // }
+    
     // Getters and Setters
     public String getCountryName() {
         return countryName;
@@ -137,6 +119,7 @@ public class Country extends Continent {
     }
 
     // override the flyOrSail method from the Continent class
+    
     @Override
     public void flyOrSail() {
         if (ocean.equals("Atlantic")) {
